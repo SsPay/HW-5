@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -14,6 +15,7 @@
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
-
+<%=  image_tag(@post.picture) if @post.picture.attached? %>
+<br>
 <%= link_to 'Edit', edit_post_path(@post), class: "badge badge-warning" %> |
 <%= link_to 'Back', posts_path, class: "badge badge-warning" %>

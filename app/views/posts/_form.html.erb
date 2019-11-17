@@ -26,6 +26,8 @@
     <%= form.label :content %>
     <%= form.text_area :content, class: "form-control", id: "exampleFormControlTextarea1", rows: "3" %>
   </div>
+      
+      <%= form.file_field :picture %>
   <div class="actions">
     <%= form.submit 'Submit', class: "btn btn-warning" %>
   </div>
