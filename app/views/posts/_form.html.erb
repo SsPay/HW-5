@@ -13,20 +13,23 @@
       </div>
     <% end %>
   <div class="field">
+    <%= form.select :author, Author.pluck(:id, :first_name) %>
+  </div>
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control",  id: "exampleFormControlInput1"  %>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control",  id: "exampleFormControlInput1" %>
+    <%= form.text_field :title, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, class: "form-control", id: "exampleFormControlTextarea1", rows: "3" %>
+    <%= form.text_area :content, class: "form-control", rows: "3" %>
   </div>
-      
+      <%= form.label "Picture" %>
       <%= form.file_field :picture %>
   <div class="actions">
     <%= form.submit 'Submit', class: "btn btn-warning" %>
