@@ -1,0 +1,19 @@
+<article class="post">
+  <section class="post-head">
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <p><%= post.author.first_name %></p>
+    <small>
+      <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
+      |
+      <%= link_to 'Edit', edit_post_path(post) %>
+      |
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    </small>
+  </section>
+
+  <section class="post-summary">
+    <%= post.content %>
+  </section>
+</article>
+<hr>

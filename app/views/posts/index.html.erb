@@ -1,21 +1,4 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <h1>Posts</h1>
-    <% @posts.each do |post| %>
-    <h2><%= link_to post.title, post_path(post) %></h2>
-    <small>
-      <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      |
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <p><%= post.author.first_name %></p>
-
-
-        <section class="post-summary">
-          <%= post.content %>
-        </section>
-    <% end %>
-<br>
-
-<%= button_to 'New Post', new_post_path, method: "get", class: "btn btn-warning" %>
+  <%= render @posts %>
+</div>

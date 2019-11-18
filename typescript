@@ -133,4 +133,42 @@ Running via Spring preloader in process 26848
         rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
                                       PATCH  /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
                                       PUT    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
-                                      DELETE /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action
+                                      DELETE /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#destroy
+rails_conductor_inbound_email_reroute POST   /rails/conductor/action_mailbox/:inbound_email_id/reroute(.:format)                      rails/conductor/action_mailbox/reroutes#create
+                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ rails g controller Comments
+Running via Spring preloader in process 27132
+[1m[32m      create[0m  app/controllers/comments_controller.rb
+[1m[37m      invoke[0m  erb
+[1m[32m      create[0m    app/views/comments
+[1m[37m      invoke[0m  test_unit
+[1m[32m      create[0m    test/controllers/comments_controller_test.rb
+[1m[37m      invoke[0m  helper
+[1m[32m      create[0m    app/helpers/comments_helper.rb
+[1m[37m      invoke[0m    test_unit
+[1m[37m      invoke[0m  assets
+[1m[37m      invoke[0m    scss
+[1m[32m      create[0m      app/assets/stylesheets/comments.scss
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ [K]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ [K]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git add .
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git commit -m "add b[K[Ked bootstra p"
+[master a847520] added bootstrap
+ 20 files changed, 241 insertions(+), 46 deletions(-)
+ create mode 100644 app/assets/stylesheets/comments.scss
+ create mode 100644 app/controllers/comments_controller.rb
+ create mode 100644 app/helpers/comments_helper.rb
+ create mode 100644 app/models/comment.rb
+ rewrite app/views/posts/index.html.erb (72%)
+ create mode 100644 db/migrate/20191118135142_create_comments.rb
+ create mode 100644 test/controllers/comments_controller_test.rb
+ create mode 100644 test/fixtures/comments.yml
+ create mode 100644 test/models/comment_test.rb
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git push origin master
+Username for 'https://github.com': sspay
+Password for 'https://sspay@github.com': 
+Подсчет объектов: 38, готово.
+Delta compression using up to 4 threads.
+Сжатие объектов:   2% (1/37)   Сжатие объектов:   5% (2/37)   Сжатие объектов:   8% (3/37)   Сжатие объектов:  10% (4/37)   Сжатие объектов:  13% (5/37)   Сжатие объектов:  16% (6/37)   Сжатие объектов:  18% (7/37)   Сжатие объектов:  21% (8/37)   Сжатие объектов:  24% (9/37)   Сжатие объектов:  27% (10/37)   Сжатие объектов:  29% (11/37)   Сжатие объектов:  32% (12/37)   Сжатие объектов:  35% (13/37)   Сжатие объектов:  37% (14/37)   Сжатие объект
