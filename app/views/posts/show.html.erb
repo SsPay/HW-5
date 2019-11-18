@@ -1,21 +1,42 @@
 
 <p id="notice"><%= notice %></p>
+<div class="container">
+
 
 <p>
   <strong>Author:</strong>
   <%= @post.author.first_name %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<h1>
+  <strong><%= @post.title %></strong>
+</h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<p>  <%= @post.content %></p>
 <%=  image_tag(@post.picture) if @post.picture.attached? %>
 <br>
 <%= link_to 'Edit', edit_post_path(@post), class: "badge badge-warning" %> |
 <%= link_to 'Back', posts_path, class: "badge badge-warning" %>
+<hr>
+<h2>Comments</h2>
+<% @post.comments.each do  |comment| %>
+  <div class="alert alert-light">
+    <p><strong><%= comment.username %></strong>:<%= comment.body %></p>
+  </div>
+  <% end  %>
+<hr>
+<h2>Add comment</h2>
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+  <p>
+    User<br>
+    <%= f.text_field(:username, {:class => "form-control"}) %>
+  </p>
+  <p>
+    Text<br>
+    <%= f.text_area(:body, {:class => "form-control"}) %>
+  </p>
+  <p>
+    <%= f.submit("Add comment",{:class => 'btn btn-success'}) %>
+  </p>
+<% end  %>
+</div>

@@ -12,8 +12,8 @@
         </ul>
       </div>
     <% end %>
-  <div class="field">
-    <%= form.collection_select(:author_id, Author.all, :id, :first_name, class:'form-control' ) %>
+  <div class="form-group">
+    <%= form.collection_select(:author_id, Author.all, :id, :first_name, class: "form-control-file" ) %>
   </div>
 
   <div class="field">

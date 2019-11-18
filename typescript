@@ -49,4 +49,88 @@ git: «coomit» не является командой git. Смотрите «g
 
 Самые похожие команды:
 	commit
-]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git coom[K[Kmmit -m "added authors  to posts"
+[master 1f1e44f] added authors to posts
+ 9 files changed, 16 insertions(+), 6 deletions(-)
+ create mode 100644 db/migrate/20191117222319_links_authors_and_posts.rb
+ create mode 100644 typescript
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git push irugun [K[K[K[K[K[K[Korigin masste[K[K[Kter
+Username for 'https://github.com': sspay
+Password for 'https://sspay@github.com': 
+Подсчет объектов: 17, готово.
+Delta compression using up to 4 threads.
+Сжатие объектов:   5% (1/17)   Сжатие объектов:  11% (2/17)   Сжатие объектов:  17% (3/17)   Сжатие объектов:  23% (4/17)   Сжатие объектов:  29% (5/17)   Сжатие объектов:  35% (6/17)   Сжатие объектов:  41% (7/17)   Сжатие объектов:  47% (8/17)   Сжатие объектов:  52% (9/17)   Сжатие объектов:  58% (10/17)   Сжатие объектов:  64% (11/17)   Сжатие объектов:  70% (12/17)   Сжатие объектов:  76% (13/17)   Сжатие объектов:  82% (14/17)   Сжатие объектов:  88% (15/17)   Сжатие объектов:  94% (16/17)   Сжатие объектов: 100% (17/17)   Сжатие объектов: 100% (17/17), готово.
+Запись объектов:   5% (1/17)   Запись объектов:  11% (2/17)   Запись объектов:  17% (3/17)   Запись объектов:  23% (4/17)   Запись объектов:  29% (5/17)   Запись объектов:  35% (6/17)   Запись объектов:  41% (7/17)   Запись объектов:  47% (8/17)   Запись объектов:  52% (9/17)   Запись объектов:  58% (10/17)   Запись объектов:  64% (11/17)   Запись объектов:  70% (12/17)   Запись объектов:  76% (13/17)   Запись объектов:  82% (14/17)   Запись объектов:  88% (15/17)   Запись объектов:  94% (16/17)   Запись объектов: 100% (17/17)   Запись объектов: 100% (17/17), 1.59 KiB | 1.59 MiB/s, готово.
+Total 17 (delta 12), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/12)[Kremote: Resolving deltas:   8% (1/12)[Kremote: Resolving deltas:  16% (2/12)[Kremote: Resolving deltas:  25% (3/12)[Kremote: Resolving deltas:  33% (4/12)[Kremote: Resolving deltas:  41% (5/12)[Kremote: Resolving deltas:  50% (6/12)[Kremote: Resolving deltas:  58% (7/12)[Kremote: Resolving deltas:  66% (8/12)[Kremote: Resolving deltas:  75% (9/12)[Kremote: Resolving deltas:  83% (10/12)[Kremote: Resolving deltas:  91% (11/12)[Kremote: Resolving deltas: 100% (12/12)[Kremote: Resolving deltas: 100% (12/12), completed with 12 local objects.[K
+To https://github.com/SsPay/HW-5.git
+   037b843..1f1e44f  master -> master
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ пше [K[K[K[Kgit add .
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git commit -m "added authors  to posts:
+> 
+> g
+> exit
+> ^C
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git commit -m "added authors tto posts:
+
+g
+exit[K[K[K[K[K[A[C[K[K[A[K[A[C[C[C[C[C[C[C[C[C[K"
+[master 40afed6] added authors to posts
+ 5 files changed, 56 insertions(+), 12 deletions(-)
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git pi[Kush origin master
+Username for 'https://github.com': sspay
+Password for 'https://sspay@github.com': 
+Подсчет объектов: 11, готово.
+Delta compression using up to 4 threads.
+Сжатие объектов:   9% (1/11)   Сжатие объектов:  18% (2/11)   Сжатие объектов:  27% (3/11)   Сжатие объектов:  36% (4/11)   Сжатие объектов:  45% (5/11)   Сжатие объектов:  54% (6/11)   Сжатие объектов:  63% (7/11)   Сжатие объектов:  72% (8/11)   Сжатие объектов:  81% (9/11)   Сжатие объектов:  90% (10/11)   Сжатие объектов: 100% (11/11)   Сжатие объектов: 100% (11/11), готово.
+Запись объектов:   9% (1/11)   Запись объектов:  18% (2/11)   Запись объектов:  27% (3/11)   Запись объектов:  36% (4/11)   Запись объектов:  45% (5/11)   Запись объектов:  54% (6/11)   Запись объектов:  63% (7/11)   Запись объектов:  72% (8/11)   Запись объектов:  81% (9/11)   Запись объектов:  90% (10/11)   Запись объектов: 100% (11/11)   Запись объектов: 100% (11/11), 2.02 KiB | 1.01 MiB/s, готово.
+Total 11 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
+To https://github.com/SsPay/HW-5.git
+   1f1e44f..40afed6  master -> master
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ rails g model Comment usernam e:string body:text post:references
+Running via Spring preloader in process 26848
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20191118135142_create_comments.rb
+[1m[32m      create[0m    app/models/comment.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/models/comment_test.rb
+[1m[32m      create[0m      test/fixtures/comments.yml
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ rails db:migrate
+== 20191118135142 CreateComments: migrating ===================================
+-- create_table(:comments)
+   -> 0.0104s
+== 20191118135142 CreateComments: migrated (0.0107s) ==========================
+
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ rake routes
+                               Prefix Verb   URI Pattern                                                                              Controller#Action
+                                 root GET    /                                                                                        posts#index
+                        post_comments GET    /posts/:post_id/comments(.:format)                                                       comments#index
+                                      POST   /posts/:post_id/comments(.:format)                                                       comments#create
+                     new_post_comment GET    /posts/:post_id/comments/new(.:format)                                                   comments#new
+                    edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format)                                              comments#edit
+                         post_comment GET    /posts/:post_id/comments/:id(.:format)                                                   comments#show
+                                      PATCH  /posts/:post_id/comments/:id(.:format)                                                   comments#update
+                                      PUT    /posts/:post_id/comments/:id(.:format)                                                   comments#update
+                                      DELETE /posts/:post_id/comments/:id(.:format)                                                   comments#destroy
+                                posts GET    /posts(.:format)                                                                         posts#index
+                                      POST   /posts(.:format)                                                                         posts#create
+                             new_post GET    /posts/new(.:format)                                                                     posts#new
+                            edit_post GET    /posts/:id/edit(.:format)                                                                posts#edit
+                                 post GET    /posts/:id(.:format)                                                                     posts#show
+                                      PATCH  /posts/:id(.:format)                                                                     posts#update
+                                      PUT    /posts/:id(.:format)                                                                     posts#update
+                                      DELETE /posts/:id(.:format)                                                                     posts#destroy
+        rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
+        rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
+           rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
+        rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
+         rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
+       rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
+                                      POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
+    new_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/new(.:format)                             rails/conductor/action_mailbox/inbound_emails#new
+   edit_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)                        rails/conductor/action_mailbox/inbound_emails#edit
+        rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
+                                      PATCH  /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      PUT    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      DELETE /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action
