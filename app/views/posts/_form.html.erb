@@ -13,7 +13,7 @@
       </div>
     <% end %>
   <div class="field">
-    <%= form.select :author, Author.pluck(:id, :first_name) %>
+    <%= form.collection_select(:author_id, Author.all, :id, :last_name, class:'form-control' ) %>
   </div>
   <div class="field">
     <%= form.label :name %>

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_many :authors
+  belongs_to :author
   has_one_attached :picture
   validates :title, presence: true
   validates :name, presence: true
