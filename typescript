@@ -1,0 +1,52 @@
+Script started on 2019-11-18 00:11:34+0200
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ кфш[K[K[Krails db:migarera[K[K[K[K[K[K[K[K[K[K[Kg migration A[KLinksAuthir s[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kor sAndPosts
+Running via Spring preloader in process 18355
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20191117222319_links_authors_and_posts.rb
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ rails db:migrate
+== 20191117222319 LinksAuthorsAndPosts: migrating =============================
+-- add_reference(:posts, :author)
+   -> 0.0090s
+== 20191117222319 LinksAuthorsAndPosts: migrated (0.0092s) ====================
+
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ po[K[Krails c
+Running via Spring preloader in process 20436
+Loading development environment (Rails 6.0.1)
+2.6.3 :001 > Post.last
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+ => #<Post id: 1, name: "mhgmhg", title: "hgmhg", content: "hgmhgmg", created_at: "2019-11-17 23:17:02", updated_at: "2019-11-17 23:17:02", author_id: 3> 
+2.6.3 :002 > exit
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ f\[K[Kgit ad[K[Kstatus
+На ветке master
+Ваша ветка обновлена в соответствии с «origin/master».
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+	[31mизменено:      app/controllers/posts_controller.rb[m
+	[31mизменено:      app/models/author.rb[m
+	[31mизменено:      app/models/post.rb[m
+	[31mизменено:      app/views/posts/_form.html.erb[m
+	[31mизменено:      app/views/posts/index.html.erb[m
+	[31mизменено:      app/views/posts/show.html.erb[m
+	[31mизменено:      db/schema.rb[m
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+	[31mdb/migrate/20191117222319_links_authors_and_posts.rb[m
+	[31mtypescript[m
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git add .
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git coomit -m "F[KF[Kadded authors  to posts"
+git: «coomit» не является командой git. Смотрите «git --help».
+
+Самые похожие команды:
+	commit
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01

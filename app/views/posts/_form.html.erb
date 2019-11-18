@@ -13,11 +13,7 @@
       </div>
     <% end %>
   <div class="field">
-    <%= form.collection_select(:author_id, Author.all, :id, :last_name, class:'form-control' ) %>
-  </div>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control",  id: "exampleFormControlInput1"  %>
+    <%= form.collection_select(:author_id, Author.all, :id, :first_name, class:'form-control' ) %>
   </div>
 
   <div class="field">
