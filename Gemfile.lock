@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jordanhudgens/impressionist
+  revision: ec0491110f7a34f6c9a4c2d82e50c1161e9b65b0
+  specs:
+    impressionist (1.6.0)
+      nokogiri (~> 1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -223,6 +230,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   faker
+  impressionist!
   jbuilder (~> 2.7)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

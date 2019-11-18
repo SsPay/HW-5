@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
 gem 'faker'
 gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
