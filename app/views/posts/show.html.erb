@@ -31,7 +31,8 @@
   </div>
   <% end  %>
 <hr>
-<h2>Add comment</h2>
+
+<h2>Add comment  <%= fa_icon "edit" %></h2>
 <%= form_for ([@post, @post.comments.build]) do |f| %>
   <p>
     User<br>
