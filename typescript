@@ -204,4 +204,31 @@ Loading development environment (Rails 6.0.1)
 [1mNoMethodError ([4mundefined method `impresions_count' for Post (call 'Post.connection' to establish a connection):Class[0;1m)[m
 [1mDid you mean?  impressionist_cache_options[m
 2.6.3 :002 > Post.title.all
-[1mTraceback[m (most rec
+[1mTraceback[m (most recent call last):
+        2: from (irb):2
+        1: from (irb):2:in `rescue in irb_binding'
+[1mNoMethodError ([4mundefined method `title' for Post (call 'Post.connection' to establish a connection):Class[0;1m)[m
+2.6.3 :003 > Post.title
+[1mTraceback[m (most recent call last):
+        2: from (irb):3
+        1: from (irb):3:in `rescue in irb_binding'
+[1mNoMethodError ([4mundefined method `title' for Post (call 'Post.connection' to establish a connection):Class[0;1m)[m
+2.6.3 :004 > Post.all
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT ?[0m  [["LIMIT", 11]]
+ => #<ActiveRecord::Relation [#<Post id: 1, name: nil, title: "privet", content: "ioijhibho", created_at: "2019-11-18 19:09:24", updated_at: "2019-11-18 19:09:24", author_id: 3, impressions_count: nil>, #<Post id: 2, name: nil, title: "njnanfwe", content: "fklewnflewmg", created_at: "2019-11-18 20:54:48", updated_at: "2019-11-18 20:54:48", author_id: 3, impressions_count: nil>]> 
+2.6.3 :005 > exit
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git add .
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git commit -m "added views co unter"
+[master bf7abb2] added views counter
+ 10 files changed, 122 insertions(+), 3 deletions(-)
+ create mode 100644 config/initializers/impression.rb
+ create mode 100644 db/migrate/20191118204451_create_impressions_table.rb
+ create mode 100644 db/migrate/20191118205038_add_impressions_count_to_posts.rb
+]0;vyacheslav@Vyacheslav-PC: ~/Рабочий стол/blog/HW-5[01;32mvyacheslav@Vyacheslav-PC[00m:[01;34m~/Рабочий стол/blog/HW-5[00m$ git push origin master
+Username for 'https://github.com': sspay
+Password for 'https://sspay@github.com': 
+Подсчет объектов: 21, готово.
+Delta compression using up to 4 threads.
+Сжатие объектов:   4% (1/21)   Сжатие объектов:   9% (2/21)   Сжатие объектов:  14% (3/21)   Сжатие объектов:  19% (4/21)   Сжатие объектов:  23% (5/21)   Сжатие объектов:  28% (6/21)   Сжатие объектов:  33% (7/21)   Сжатие объектов:  38% (8/21)   Сжатие объектов:  42% (9/21)   Сжатие объектов:  47% (10/21)   Сжатие объектов:  52% (11/21)   Сжатие объектов:  57% (12/21)   Сжатие объектов:  61% (13/21)   Сжатие объектов:  66% (14/21)   Сжатие объектов:  71% (15/21)   Сжатие объектов:  76% (16/21)   Сжатие объектов:  80% (17/21)   Сжатие объектов:  85% (18/21)   Сжатие объектов:  90% (19/21)   Сжатие объектов:  95% (20/21)   Сжатие объектов: 100% (21/21)   Сжатие объектов: 100% (21/21), готово.
+Запись объектов:   4% (1/21)   Запись объектов:   9% (2/21)   Запись объектов:  14% (3/21)   Запись объектов:  19% (4/21)   Запись объектов:  23% (5/21)   Запись объектов:  28% (6/21)   Запись объектов:  33% (7/21)   Запись объектов:  38% (8/21)   Запись объектов:  42% (9/21)   Запись объектов:  47% (10/21)   Запись объектов:  52% (11/21)   Запись объектов:  57% (12/21)   Запись объектов:  61% (13/21)   Запись объектов:  66% (14/21)   Запись объектов:  71% (15/21)   Запись объектов:  76% (16/21)   Запись объектов:  80% (17/21)   Запись объектов:  85% (18/21)   Запись объектов:  90% (19/21)   Запись объектов:  95% (20/21)   Запись объекто
