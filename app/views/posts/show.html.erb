@@ -12,7 +12,9 @@
   <strong><%= @post.title %></strong>
 </h1>
 
-<p>  <%= @post.content %></p>
+<section class="post-content">
+  <%= @post.content %>
+</section>
 <%=  image_tag(@post.picture) if @post.picture.attached? %>
 <br>
 <%= link_to 'Edit', edit_post_path(@post), class: "badge badge-warning" %> |
