@@ -5,11 +5,12 @@
     <p><%= fa_icon "eye" %> Views: <%= post.impressions_count %></p>
     <small>
       <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
+      <% if post.author == current_author  %>
       |
       <%= link_to 'Edit', edit_post_path(post) %>
       |
       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+      <% end  %>
     </small>
   </section>
 
