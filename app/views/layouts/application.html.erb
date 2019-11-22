@@ -31,6 +31,14 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <%= link_to 'New Post', new_post_path, class: 'btn btn-outline-primary' %>
+              <% if current_author %>
+                Logged in as <%= current_author.email %>.
+                <%= link_to "Log Out", logout_path %>
+              <% else %>
+                <%= link_to "Sign Up", signup_path %> or
+                <%= link_to "Log In", login_path %>
+              <% end %>
+              <p id="notice"><%= notice %></p>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
