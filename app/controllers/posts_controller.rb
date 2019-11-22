@@ -1,9 +1,15 @@
 class PostsController < ApplicationController
   impressionist actions: [:show], unique: [:session_hash]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :correct_author, only: [:edit, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
+
+  def correct_author
+      @post = Post.find_by(id: params[:id])
+      unless current_author
+        redirect_to root_path(current_author)
+      end
+    end
   def index
     @posts = Post.all
   end
