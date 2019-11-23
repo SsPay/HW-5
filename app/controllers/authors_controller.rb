@@ -1,8 +1,14 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :correct_author, only: [:edit, :update, :destroy]
 
-  # GET /authors
-  # GET /authors.json
+  def correct_author
+      @authors = Author.find_by(id: params[:id])
+      unless current_author
+        redirect_to root_path(current_author)
+      end
+  end
+
   def index
     @authors = Author.all
   end
@@ -26,7 +32,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'author was successfully created.' }
+        format.html { redirect_to root_path, notice: 'author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
@@ -40,7 +46,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: 'author was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'author was successfully updated.' }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit }
