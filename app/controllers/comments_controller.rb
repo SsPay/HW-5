@@ -1,4 +1,13 @@
 class CommentsController < ApplicationController
+    before_action :correct_author, only: [:edit, :update, :destroy]
+
+  def correct_author
+      @comment = Post.find(params[:post_id])
+      unless current_author
+        redirect_to root_path(current_author)
+      end
+    end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)

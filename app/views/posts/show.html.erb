@@ -25,13 +25,15 @@
 <h2>Comments</h2>
 <% @post.comments.each do  |comment| %>
   <div class="alert alert-light">
-    <p><strong><%= comment.username %></strong>:<%= comment.body %></p>
+    <p><strong><%= comment.author.login %></strong>:<%= comment.body %></p>
+      <% if @post.author == current_author  %>
     |
     <p>
       <%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
     </p>
+    <% end %>
   </div>
   <% end  %>
 <hr>
