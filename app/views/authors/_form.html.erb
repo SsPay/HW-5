@@ -13,28 +13,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :login %>
-    <%= form.text_field :login %>
+  <div class="form-group">
+    <%= form.text_field :login, class: "form-control", id: "login", placeholder: "Enter Login", autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+    <%= form.text_field :email, type: "email", class: "form-control", id: "email", placeholder: "Enter email", autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class="form-group">
+    <%= form.password_field :password, type: "password", class: "form-control", id: "password", placeholder: "Введите пароль" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, type: "password", class: "form-control", id: "password", placeholder: "Введите пароль"  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>
