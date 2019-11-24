@@ -1,6 +1,9 @@
 <article class="post">
   <section class="post-head">
     <h2><%= link_to post.title, post_path(post) %></h2>
+    <small> <% if edited?(post) %>
+            <p>edited <%= fa_icon 'edit'%> </p>
+            <% end %></small>
     <p><%= post.author.login %></p>
     <p><%= fa_icon "eye" %> Views: <%= post.impressions_count %></p>
     <small>

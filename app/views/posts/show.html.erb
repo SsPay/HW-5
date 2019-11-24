@@ -1,7 +1,6 @@
 
-<p id="notice"><%= notice %></p>
-<div class="container">
-
+<div class="container main">
+<p id="alert alert-danger"><%= notice  %></p>
 
 <p>
   <strong>Author:</strong>
@@ -26,6 +25,9 @@
 <% @post.comments.each do  |comment| %>
   <div class="alert alert-light">
     <p><strong><%= comment.author.login %></strong>:<%= comment.body %></p>
+    <small> <% if edited?(comment) %>
+            <p>edited <%= fa_icon 'edit'%> </p>
+            <% end %></small>
       <% if @post.author == current_author  %>
     <p>
       <%= link_to 'Destroy', [comment.post, comment],
