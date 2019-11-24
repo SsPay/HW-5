@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
       end
     end
 
+    def edit
+      @post = Post.find(params[:post_id])
+      @comment = @post.author.comments.find(params[:id])
+    end
+
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
@@ -19,6 +25,21 @@ class CommentsController < ApplicationController
       format.html { redirect_to @post, notice: 'good' }
     else
       format.html { redirect_to @post, notice: 'bad' }
+      end
+    end
+  end
+
+
+  def update
+    @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end

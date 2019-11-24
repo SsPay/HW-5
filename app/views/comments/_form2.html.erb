@@ -1,0 +1,14 @@
+<h2>Add comment  <%= fa_icon "edit" %></h2>
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+  <p>
+    User<br>
+    <%= f.text_field(:username, {:class => "form-control"}) %>
+  </p>
+  <p>
+    Text<br>
+    <%= f.text_area(:body, {:class => "form-control"}) %>
+  </p>
+  <p>
+    <%= f.submit("Add comment",{:class => 'btn btn-success'}) %>
+  </p>
+<% end  %>
