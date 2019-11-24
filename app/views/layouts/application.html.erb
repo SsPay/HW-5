@@ -49,7 +49,7 @@
 
 
     </nav>
-    <% if pop_up %>
+    <% if pop_up and current_author == nil %>
       <script>alert('You are not log in. Plz log in or register');</script>
       <% end %>
     <%= yield %>
