@@ -39,9 +39,11 @@
           <% if current_author %>
             Logged in as <%= current_author.email %>.
             <%= link_to "Log Out", logout_path %>
+            <%= fa_icon "sign-out" %>
           <% else %>
             <%= link_to "Sign Up", signup_path %> or
             <%= link_to "Log In", login_path %>
+            <%= fa_icon "sign-in" %>
           <% end %>
         </div>
       </div><!-- /.container-fluid -->

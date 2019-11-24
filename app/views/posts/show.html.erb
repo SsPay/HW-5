@@ -27,16 +27,20 @@
   <div class="alert alert-light">
     <p><strong><%= comment.author.login %></strong>:<%= comment.body %></p>
       <% if @post.author == current_author  %>
-    |
     <p>
-      <%= link_to 'Destroy Comment', [comment.post, comment],
+      <%= link_to 'Destroy', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-      <%= link_to "Edit Comment", edit_post_comment_path(comment.post, comment) %>
+                   |
+      <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
     </p>
     <% end %>
   </div>
   <% end  %>
 <hr>
+<% if current_author == nil %>
+  <p>You must be logged in to post comments.</p>
+  <% else %>
 <%= render 'comments/form' %>
+<% end %>
 </div>
