@@ -8,10 +8,6 @@ class CommentsController < ApplicationController
       end
     end
 
-    def new
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.build
-    end
 
     def edit
       @post = Post.find(params[:post_id])
