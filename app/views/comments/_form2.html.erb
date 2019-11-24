@@ -1,5 +1,5 @@
 <h2>Add comment  <%= fa_icon "edit" %></h2>
-<%= form_for ([@post, @post.comments.build]) do |f| %>
+<%= form_for ([@post, @comment]) do |f| %>
   <p>
     User<br>
     <%= f.text_field(:username, {:class => "form-control"}) %>
