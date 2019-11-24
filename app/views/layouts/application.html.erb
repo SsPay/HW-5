@@ -49,6 +49,9 @@
 
 
     </nav>
+    <% if pop_up %>
+      <script>alert('You are not log in. Plz log in or register');</script>
+      <% end %>
     <%= yield %>
   </body>
 </html>

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   impressionist actions: [:show], unique: [:session_hash]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :correct_author, only: [:edit, :update, :destroy]
-
+  before_action :actions_check
 
   def correct_author
       @post = Post.find_by(id: params[:id])
@@ -79,4 +79,13 @@ class PostsController < ApplicationController
     def post_params
        params.require(:post).permit(:title, :content, :picture, session[:author_id])
     end
+
+    def actions_check
+      if cookies[:actions]
+        cookies[:actions] = cookies[:actions].to_i + 1
+      else
+        cookies[:actions] = 0
+      end
+    end
+
 end
