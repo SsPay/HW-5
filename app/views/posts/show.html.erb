@@ -4,7 +4,12 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @post.author.login %>
+  <%= @post.author.login  %>
+  <br>
+  <small><time><%= @post.created_at.to_date.strftime("%d %B, %Y") %></time></small>
+  <small> <% if edited?(@post) %>
+          <p>edited <%= fa_icon 'edit'%> </p>
+          <% end %></small>
 </p>
 
 <h1>

@@ -19,7 +19,7 @@
 
   <section class="post-content">
     <%= fa_icon "fa-sign-out" %>
-    <%= post.content %>
+    <%= h truncate(post.content, :length => 100 ) %>
   </section>
 </article>
 <hr>
