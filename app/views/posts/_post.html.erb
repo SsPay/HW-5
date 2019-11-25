@@ -20,6 +20,7 @@
   <section class="post-content">
     <%= fa_icon "fa-sign-out" %>
     <%= h truncate(post.content, :length => 100 ) %>
+    <%=  image_tag(post.picture) if post.picture.attached? %>
   </section>
 </article>
 <hr>
