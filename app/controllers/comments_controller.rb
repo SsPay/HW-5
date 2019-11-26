@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def correct_author
       @comment = Post.find(params[:post_id])
-      unless current_author
+      unless current_author  and Time.now - @comment.created_at < 3600
         redirect_to root_path(current_author)
       end
     end
