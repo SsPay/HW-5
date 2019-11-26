@@ -32,7 +32,7 @@
     <small> <% if edited?(comment) %>
             <p>edited <%= fa_icon 'edit'%> </p>
             <% end %></small>
-    <small><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
+    <small data-toggle="tooltip" data-placement="top" title="(<%=comment.updated_at  %>)"><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
       <% if @post.author == current_author  %>
     <p>
       <%= link_to 'Destroy', [comment.post, comment],
