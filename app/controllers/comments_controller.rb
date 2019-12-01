@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
       end
     end
 
+    def new
+      @post = Post.find(params[:post_id])
+      @comment = Comment.new(:parent_id => params[:parent_id])
+    end
+
 
     def edit
       @post = Post.find(params[:post_id])
@@ -64,6 +69,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :author_id)
+    params.require(:comment).permit(:body, :author_id, :parent_id)
   end
 end

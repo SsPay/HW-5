@@ -26,24 +26,7 @@
 <% end %>
 <hr>
 <h2>Comments</h2>
-<% @post.comments.each do  |comment| %>
-  <div class="alert alert-light">
-    <p><strong><%= comment.author.login %></strong>:<%= comment.body %></p>
-    <small> <% if edited?(comment) %>
-            <p>edited <%= fa_icon 'edit'%> </p>
-            <% end %></small>
-    <small data-toggle="tooltip" data-placement="top" title="(<%=comment.updated_at  %>)"><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
-      <% if @post.author == current_author  %>
-    <p>
-      <%= link_to 'Destroy', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-                   |
-      <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
-    </p>
-    <% end %>
-  </div>
-  <% end  %>
+<%= nested_comments @post.comments.arrange(order: :created_at)  %>
 <hr>
 <% if current_author == nil %>
   <p>You must be logged in to post comments.</p>

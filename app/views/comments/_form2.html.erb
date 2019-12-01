@@ -2,6 +2,7 @@
 <h2>Add comment  <%= fa_icon "edit" %></h2>
 <%= form_for ([@post, @comment]) do |f| %>
   <p>
+    <%= f.hidden_field :parent_id %>
     Text<br>
     <%= f.text_area(:body, {:class => "form-control"}) %>
   </p>

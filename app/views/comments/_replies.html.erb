@@ -1,0 +1,14 @@
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+
+  <!--# ancestry-->
+  <%= form.hidden_field :parent_id, value: params[:parent_id] %>
+
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment, class:'form-control' %>
+  </p>
+  <p>
+    <%= form.submit class:'btn btn-info btn-lg' %>
+  </p>
+<% end %>

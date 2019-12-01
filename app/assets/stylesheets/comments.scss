@@ -1,3 +1,22 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.coments {
+  margin-top: 15px;
+  text-align: left;
+}
+.field {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.com_created {
+  font-size: 15px;
+  font-style: italic;
+}
+
+
+
+.nested_comments {
+  margin-left: 100px;
+}
