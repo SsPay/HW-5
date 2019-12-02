@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  def correct_author
+      @comment = Post.find(params[:post_id])
+      unless current_author  and Time.now - @comment.created_at < 3600
+        redirect_to root_path(current_author)
+      end
+    end
+
   def edited?(param)
     param.created_at != param.updated_at
   end

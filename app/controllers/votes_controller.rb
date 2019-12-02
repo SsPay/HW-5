@@ -5,7 +5,7 @@ def create
   if already_voted?
     flash[:notice] = "You can't like more than once"
   else
-      @comment.votes.create(author_id: current_author.id)
+     @comment.votes.create(author_id: current_author.id)
   end
   redirect_to post_path(@post)
 end

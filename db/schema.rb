@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_135856) do
+ActiveRecord::Schema.define(version: 2019_12_02_215133) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,8 +33,20 @@ ActiveRecord::Schema.define(version: 2019_12_02_135856) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-# Could not dump table "authors" because of following StandardError
-#   Unknown type 'digest' for column 'password'
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.date "birthday"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "picture"
+    t.string "login"
+    t.string "email"
+    t.string "password_digest"
+    t.index ["email"], name: "index_authors_on_email", unique: true
+    t.index ["login"], name: "index_authors_on_login", unique: true
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "username"

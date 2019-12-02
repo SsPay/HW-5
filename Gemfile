@@ -9,8 +9,8 @@ gem 'impressionist', git: 'https://github.com/jordanhudgens/impressionist'
 gem 'faker'
 gem 'rails', '~> 6.0.1'
 gem 'ancestry', '~> 3.0', '>= 3.0.7'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use pg as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

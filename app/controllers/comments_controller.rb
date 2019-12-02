@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-    before_action :correct_author, only: [:edit, :update, :destroy]
+    before_action :correct_author, only: [:edit, :update, :destroy, :new]
 
-  def correct_author
-      @comment = Post.find(params[:post_id])
-      unless current_author  and Time.now - @comment.created_at < 3600
-        redirect_to root_path(current_author)
+    def correct_author
+        @comment = Post.find(params[:post_id])
+        unless current_author  and Time.now - @comment.created_at < 3600
+          redirect_to root_path(current_author)
+        end
       end
-    end
 
     def new
       @post = Post.find(params[:post_id])
