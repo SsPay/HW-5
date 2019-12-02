@@ -4,6 +4,14 @@
             <p>edited <%= fa_icon 'edit'%> </p>
             <% end %></small>
     <small data-toggle="tooltip" data-placement="top" title="(<%=comment.updated_at  %>)"><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
+      <%= link_to "Reply", new_post_comment_path(comment.post, :parent_id => comment.id), class:'btn btn-outline-primary' %>
+      <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
+        <% if pre_vote %>
+          <%= button_to 'DownVote', post_comment_vote_path(@post, comment, pre_vote), method: :delete, class: "btn btn-danger" %>
+        <% else %>
+          <%= button_to 'UpVote', post_comment_votes_path(@post, comment), method: :post, class: "btn btn-success" %>
+        <% end %>
+      <p><%= comment.votes.count %> <%= (comment.votes.count) == 1 ? 'Like' : 'Likes'%></p>
       <% if @post.author == current_author  %>
     <p>
       <%= link_to 'Destroy', [comment.post, comment],
