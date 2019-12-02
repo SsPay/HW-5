@@ -3,7 +3,6 @@
     <small> <% if edited?(comment) %>
             <p>edited <%= fa_icon 'edit'%> </p>
             <% end %></small>
-            <%= link_to "Reply", new_post_comment_path(comment.post, :parent_id => comment.id), class:'btn btn-sm btn-outline-secondary' %>
     <small data-toggle="tooltip" data-placement="top" title="(<%=comment.updated_at  %>)"><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
       <% if @post.author == current_author  %>
     <p>
