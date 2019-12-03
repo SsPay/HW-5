@@ -1,4 +1,6 @@
+require 'action_text'
 class ApplicationController < ActionController::Base
+  helper ActionText::Engine.helpers
   helper_method :current_author, :banned?
   def current_author
     if session[:author_id]
