@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :correct_author, only: [:edit, :update, :destroy, :new]
+    before_action :banned?, only: [:new, :create]
 
     def correct_author
         @comment = Post.find(params[:post_id])

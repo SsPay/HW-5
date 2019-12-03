@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
   root 'posts#index'
+
+
 
   resources :posts do
     resources :comments do

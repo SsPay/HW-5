@@ -60,6 +60,12 @@
     <% if pop_up and current_author == nil %>
       <script>alert('You are not log in. Plz log in or register');</script>
       <% end %>
+            <div class="container">
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %>"><%= value %></div>
+              <% end %>
+
+            </div>
     <%= yield %>
   </body>
 </html>

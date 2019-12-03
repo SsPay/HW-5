@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :correct_author, only: [:edit, :update, :destroy]
   before_action :actions_check
+  before_action :banned?, only: [:new, :create, :update]
 
   def correct_author
       @post = Post.find_by(id: params[:id])
