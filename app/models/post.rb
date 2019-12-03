@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :picture
   validates :title, presence: true
   validates :content, presence: true
-
+  has_rich_text :content
 
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
