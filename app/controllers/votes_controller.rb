@@ -1,23 +1,33 @@
 class VotesController < ApplicationController
   before_action :find_comment
   before_action :find_vote, only: [:destroy]
-def create
-  if already_voted?
-    flash[:notice] = "You can't like more than once"
-  else
-     @comment.votes.create(author_id: current_author.id)
-  end
-  redirect_to post_path(@post)
-end
+  def create
+      if already_voted?
+        flash[:alert] = 'You have already liked'
+      else
+        if @comment.votes.create!(author: current_author, count: 1)
+          redirect_to @post
+        else
+          respond_to do |format|
+            format.html { redirect_to @post, alert: 'You have already voted' }
+          end
+        end
+      end
+    end
 
-def destroy
-  if !(already_voted?)
-    flash[:notice] = "Cannot unlike"
-  else
-    @vote.destroy
+def dislike
+    if already_voted?
+      flash[:alert] = 'You already voted'
+    else
+      if @comment.votes.create!(author: current_author, count: -1)
+        redirect_to @post
+      else
+        respond_to do |format|
+          format.html { redirect_to @post, alert: 'You have already voted' }
+        end
+      end
+    end
   end
-  redirect_to post_path(@post)
-end
 
 private
 def find_comment

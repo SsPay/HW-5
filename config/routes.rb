@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments do
       resources :votes
+      post '/dislikes' => 'votes#dislike', as: :dislike_create
     end
   end
 

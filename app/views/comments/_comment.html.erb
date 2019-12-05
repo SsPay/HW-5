@@ -7,12 +7,18 @@
       <% if current_author %>
       <%= link_to "Reply", new_post_comment_path(comment.post, :parent_id => comment.id), class:'btn btn-outline-primary' %>
       <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
-        <% if pre_vote %>
-          <%= button_to 'DownVote', post_comment_vote_path(@post, comment, pre_vote), method: :delete, class: "btn btn-danger" %>
-        <% else %>
-          <%= button_to 'UpVote', post_comment_votes_path(@post, comment), method: :post, class: "btn btn-success" %>
-        <% end %>
-      <i><%= comment.votes.count %> <%= (comment.votes.count) == 1 ? 'Like' : 'Likes'%></i>
+      <% if current_author %>
+            <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
+          <% end %>
+          <% if current_author and pre_vote == nil %>
+            <%= link_to '↑', post_comment_votes_path(@post, comment),method: :post, class: 'badge badge-primary ' %>
+            <strong><%= count_rating(comment.votes)%></strong>
+            <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'badge badge-danger' %>
+          <% else  %>
+            <span class="badge badge-light disabled">↑</span>
+            <strong><%= count_rating(comment.votes)%></strong>
+            <span class="badge badge-light disabled">↓</span>
+          <% end %>
       <% if @post.author == current_author  %>
     <p>
       <%= link_to 'Destroy', [comment.post, comment],
@@ -23,4 +29,8 @@
     </p>
     <% end %>
     <% end %>
+    <br>
+            <% unless current_author %>
+        <strong>Rating: <%= count_rating(comment.votes)%></strong>
+        <% end  %>
   </div>
