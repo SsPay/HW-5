@@ -12,7 +12,7 @@
           <% end %>
           <% if current_author and pre_vote == nil %>
             <%= link_to '↑', post_comment_votes_path(@post, comment),method: :post, class: 'badge badge-primary ' %>
-            <strong><%= count_rating(comment.votes)%></strong>
+            <strong><%= count_rating%></strong>
             <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'badge badge-danger' %>
           <% else  %>
             <span class="badge badge-light disabled">↑</span>
