@@ -5,9 +5,8 @@
             <p>edited <%= fa_icon 'edit'%> </p>
             <% end %></small>
     <p><%= post.author.login %></p>
-    <span data-toggle="tooltip" data-placement="top" title="Uniq(<%= post.impressionist_count(:filter=>:ip_address) %>)">
-    <p><%= fa_icon "eye" %> Views: <%= post.impressions_count %></p>
-    <small>
+    <p data-toggle="tooltip" data-placement="top" title="Uniq views(<%= post.impressionist_count(:filter=>:ip_address) %>)"> <%= fa_icon "eye" %> Views: <%= post.impressions_count %> <%= fa_icon "comments" %> <%= post.comments.count %>
+    <small> </p>
       <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
       <% if post.author == current_author  %>
       |
