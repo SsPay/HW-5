@@ -1,11 +1,11 @@
-  <div class="alert alert-light">
+  <div class="comment<%= comment.id %>">
     <p><strong><%= comment.author.login %></strong>:<%= comment.body %></p>
     <small> <% if edited?(comment) %>
             <p>edited <%= fa_icon 'edit'%> </p>
             <% end %></small>
     <small data-toggle="tooltip" data-placement="top" title="(<%=comment.updated_at  %>)"><time><%= time_ago_in_words(comment.created_at) %> ago</time ></small>
       <% if current_author %>
-      <%= link_to "Reply", new_post_comment_path(comment.post, :parent_id => comment.id), class:'btn btn-outline-primary' %>
+      <%= link_to "Reply", new_post_comment_path(comment.post, :parent_id => comment.id), id: 'comment_reply_link', remote: true,  class:'btn btn-outline-primary' %>
       <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
       <% if current_author %>
             <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
@@ -15,9 +15,9 @@
             <strong><%= count_rating(comment.votes)%></strong>
             <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'btn btn-danger' %>
           <% else  %>
-            <span class="btn btn-light disabled">↑</span>
+            <span class="btn btn-success disabled">↑</span>
             <strong><%= count_rating(comment.votes)%></strong>
-            <span class="btn btn-light disabled">↓</span>
+            <span class="btn btn-danger disabled">↓</span>
           <% end %>
       <% if @post.author == current_author  %>
     <p>
