@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   before_action :find_vote, only: [:destroy]
   def create
       if already_voted?
-        flash[:alert] = 'You have already liked'
+        flash[:alert] = 'You have already voted'
       else
         if @comment.votes.create!(author: current_author, count: 1)
           redirect_to @post

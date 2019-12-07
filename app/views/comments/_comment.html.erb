@@ -11,13 +11,13 @@
             <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
           <% end %>
           <% if current_author and pre_vote == nil %>
-            <%= link_to '↑', post_comment_votes_path(@post, comment),method: :post, class: 'badge badge-primary ' %>
-            <strong><%= count_rating%></strong>
-            <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'badge badge-danger' %>
-          <% else  %>
-            <span class="badge badge-light disabled">↑</span>
+            <%= link_to '↑', post_comment_votes_path(@post, comment),method: :post, class: 'btn btn-success ' %>
             <strong><%= count_rating(comment.votes)%></strong>
-            <span class="badge badge-light disabled">↓</span>
+            <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'btn btn-danger' %>
+          <% else  %>
+            <span class="btn btn-light disabled">↑</span>
+            <strong><%= count_rating(comment.votes)%></strong>
+            <span class="btn btn-light disabled">↓</span>
           <% end %>
       <% if @post.author == current_author  %>
     <p>
