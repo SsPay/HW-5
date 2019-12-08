@@ -5,10 +5,10 @@ class VotesController < ApplicationController
       if already_voted?
         flash[:alert] = 'You have already voted'
       else
+        respond_to do |format|
         if @comment.votes.create!(author: current_author, count: 1)
-          redirect_to @post
+            format.js {render 'create', status: :created, location: @post}
         else
-          respond_to do |format|
             format.html { redirect_to @post, alert: 'You have already voted' }
           end
         end
@@ -19,10 +19,11 @@ def dislike
     if already_voted?
       flash[:alert] = 'You already voted'
     else
+      respond_to do |format|
       if @comment.votes.create!(author: current_author, count: -1)
-        redirect_to @post
+        format.js {render 'create', status: :created, location: @post}
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
       else
-        respond_to do |format|
           format.html { redirect_to @post, alert: 'You have already voted' }
         end
       end

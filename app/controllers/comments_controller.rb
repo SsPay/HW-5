@@ -1,12 +1,17 @@
 class CommentsController < ApplicationController
     before_action :correct_author, only: [:edit, :update, :destroy, :new]
+    before_action :hour_for_comment_editing, only: [:edit, :update]
     before_action :banned?, only: [:new, :create]
 
     def correct_author
         @comment = Post.find(params[:post_id])
-        unless current_author  and Time.now - @comment.created_at < 3600
+        unless current_author
           redirect_to root_path(current_author)
         end
+      end
+
+      def hour_for_comment_editing
+        Time.now - @comment.created_at < 3600
       end
 
     def new
@@ -18,6 +23,10 @@ class CommentsController < ApplicationController
     def edit
       @post = Post.find(params[:post_id])
       @comment = @post.author.comments.find(params[:id])
+      respond_to do |format|
+        format.js {render 'edit', status: :created, location: @post}
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+      end
     end
 
 

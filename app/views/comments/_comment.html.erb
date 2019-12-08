@@ -11,9 +11,9 @@
             <% pre_vote = comment.votes.find { |vote| vote.author_id == current_author.id} %>
           <% end %>
           <% if current_author and pre_vote == nil %>
-            <%= link_to '↑', post_comment_votes_path(@post, comment),method: :post, class: 'btn btn-success ' %>
+            <%= link_to '↑', post_comment_votes_path(@post, comment), remote: true, method: :post, class: 'btn btn-success ' %>
             <strong><%= count_rating(comment.votes)%></strong>
-            <%= link_to '↓', post_comment_dislike_create_path(@post, comment),method: :post, class: 'btn btn-danger' %>
+            <%= link_to '↓', post_comment_dislike_create_path(@post, comment), remote: true, method: :post, class: 'btn btn-danger' %>
           <% else  %>
             <span class="btn btn-success disabled">↑</span>
             <strong><%= count_rating(comment.votes)%></strong>
@@ -25,7 +25,7 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
                    |
-      <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+      <%= link_to "Edit", edit_post_comment_path(comment.post, comment), remote: true %>
     </p>
     <% end %>
     <% end %>
