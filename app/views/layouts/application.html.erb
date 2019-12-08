@@ -27,6 +27,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#">Link</a></li>
+
           </ul>
                 <form class="navbar-form navbar-left">
                   <div class="form-group">
@@ -36,26 +37,24 @@
                   <% end %>
                       </div>
             </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            <ul class="nav navbar-nav navbar-right">
               <% unless current_author == nil %>
-              <%= link_to 'New Post', new_post_path, class: 'btn btn-outline-primary' %>
+              <li><%= link_to 'New Post', new_post_path%></li>
               <% end %>
+              <% if current_author %>
+                    <li><%= link_to fa_icon("sign-out", text: "Log Out"), logout_path %></li>
+              <% else %>
+                <li><%= link_to fa_icon("sign-in", text: "Sign Up"), signup_path %></li>
+                <li><%= link_to fa_icon("lock", text: "Log In"), login_path %></li>
+                <% end %>
+                  </ul>
+          </div><!-- /.container-fluid -->
         </div><!-- /.navbar-collapse -->
-        <div class="nav navbar-nav navbar-right">
+        <div class="pull-right">
           <% if current_author %>
-            Logged in as <%= current_author.email %>.
-            <%= link_to "Log Out", logout_path %>
-            <%= fa_icon "sign-out" %>
-          <% else %>
-            <%= link_to "Sign Up", signup_path %> or
-            <%= link_to "Log In", login_path %>
-            <%= fa_icon "sign-in" %>
-          <% end %>
+          Logged in as <%= current_author.email %>.
+          <% end  %>
         </div>
-      </div><!-- /.container-fluid -->
-
-
     </nav>
     <% if pop_up and current_author == nil %>
       <script>alert('You are not log in. Plz log in or register');</script>
