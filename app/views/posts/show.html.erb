@@ -1,14 +1,10 @@
-
 <div class="container main">
-<!-- <p id="alert alert-danger"><%= notice  %></p>  -->
-
 <p>
   <strong>Author:</strong>
   <%= @post.author.login  %>
   <br>
   <small><time><%= @post.created_at.to_date.strftime("%d %B, %Y") %></time></small>
 </p>
-
 <div class="page-header">
   <strong><h1><%= @post.title %> </strong><small><% if edited?(@post) %>
           <p>edited <%= fa_icon 'edit'%> </p>

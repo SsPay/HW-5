@@ -52,7 +52,7 @@
         </div><!-- /.navbar-collapse -->
         <div class="pull-right">
           <% if current_author %>
-          Logged in as <%= current_author.email %>.
+          <%= fa_icon "user" %> Logged in as <%= current_author.email %>.
           <% end  %>
         </div>
     </nav>
