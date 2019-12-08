@@ -1,4 +1,4 @@
-<article class="post">
+<article class="post<%= post.id %>">
   <section class="post-head">
     <h2><%= link_to post.title, post_path(post) %></h2>
     <small> <% if edited?(post) %>
@@ -12,13 +12,12 @@
       |
       <%= link_to 'Edit', edit_post_path(post) %>
       |
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Destroy', post, remote: true,  method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end  %>
     </small>
   </section>
 
   <section class="post-content">
-    <%= fa_icon "fa-sign-out" %>
     <%= sanitize(post.content.to_s[0..100] ) %>
     <%=  image_tag(post.picture) if post.picture.attached? %>
   </section>
