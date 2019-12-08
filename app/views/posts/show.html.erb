@@ -13,17 +13,17 @@
   <strong><h1><%= @post.title %> </strong><small><% if edited?(@post) %>
           <p>edited <%= fa_icon 'edit'%> </p>
           <% end %></small></h1>
+          <% if @post.author == current_author %>
           <%= link_to fa_icon("pencil", text: "Edit"), edit_post_path(@post), class: "btn btn-warning" %>
           <%= link_to fa_icon("trash", text: "Delete" ), @post, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger pull-right"  %>
+          <% end %>
 </div>
 <section class="post-content">
   <%= @post.content %>
 </section>
 <%=  image_tag(@post.picture) if @post.picture.attached? %>
 <br>
-<% if @post.author == current_author %>
 <% # link_to 'Back', posts_path, class: "badge badge-warning" %>
-<% end %>
 <hr>
 <h2>Comments</h2>
 <div class="comments">
