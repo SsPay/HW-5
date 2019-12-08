@@ -47,7 +47,8 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.js {render 'update', status: :created, location: @post}
+        format.html { redirect_to @post, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

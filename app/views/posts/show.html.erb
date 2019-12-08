@@ -25,9 +25,11 @@
 <%= link_to 'Back', posts_path, class: "badge badge-warning" %>
 <% end %>
 <hr>
-<div class="comments">
 <h2>Comments</h2>
+<div class="comments">
+<div class="new_comment_place">
 <%= nested_comments @post.comments.arrange(order: :created_at)  %>
+</div>
 </div>
 <hr>
 <% if current_author == nil %>
