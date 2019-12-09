@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
       @comment = @post.author.comments.find(params[:id])
       respond_to do |format|
         format.js {render 'edit', status: :created, location: @post}
-        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        flash[:success] = "Comment successfully edited"
       end
     end
 
@@ -38,14 +38,14 @@ class CommentsController < ApplicationController
           respond_to do |format|
             if @comment.save
               format.js {render 'create', status: :created, location: @post}
-              format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+              flash[:success] = 'Comment was successfully created.'
             else
-              format.html { redirect_to @post, alert: @comment.errors.full_messages.first }
+              flash[:danger] = @comment.errors.full_messages.first
             end
           end
         else
           respond_to do |format|
-            format.html { redirect_to @post, alert: 'To much comments in one tree (5 comments max)' }
+            flash[:warning] = 'To much comments in one tree (5 comments max)'
           end
         end
   end
@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         format.js {render 'update', status: :created, location: @post}
-        format.html { redirect_to @post, notice: 'Comment was successfully updated.' }
+        flash[:success] = 'Comment was successfully updated.'
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

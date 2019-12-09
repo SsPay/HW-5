@@ -42,6 +42,7 @@ class PostsController < ApplicationController
     @post.author = current_author
     respond_to do |format|
       if @post.save
+        flash[:success] = 'Post was successfully created.'
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

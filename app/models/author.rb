@@ -1,5 +1,7 @@
 class Author < ApplicationRecord
   has_secure_password
+  before_create :confirmation_token
+  after_create :send_confirmation
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
@@ -8,16 +10,33 @@ class Author < ApplicationRecord
   validate :email_val, :pass_val
   validates :password_digest, presence: true,
                             length: { minimum: 8 }
-  private
-  def email_val
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+
+private
+def email_val
     unless email.include?('@')
       errors.add(:email, "invalid")
     end
   end
 
   def pass_val
-    unless  password_digest.count("a-z") <= 0 || password_digest.count("A-Z") <= 0 || password_digest.count((0-9).to_s) <= 0
-      errors.add(:password, "must contain 1 small letter, 1 capital letter and number")
+    if  password_digest.count("a-z") <= 0 || password_digest.count("A-Z") <= 0 #|| password_digest.count((0-9).to_s) <= 0
+      errors.add(:password, "must contain 1 small letter, 1 capital letter and minimum 8 symbols")
     end
   end
+
+  def send_confirmation
+      AuthorMailer.registration_confirmation(self).deliver!
+    end
+
+  def confirmation_token
+      if self.confirm_token.blank?
+          self.confirm_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
+
 end

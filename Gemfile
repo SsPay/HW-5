@@ -11,6 +11,7 @@ gem 'faker'
 gem 'rails', '~> 6.0.1'
 gem 'ancestry', '~> 3.0', '>= 3.0.7'
 # Use pg as the database for Active Record
+gem "letter_opener", :group => :development
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'

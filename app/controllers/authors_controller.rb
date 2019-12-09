@@ -65,6 +65,19 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def confirm_email
+    author = Author.find_by_confirm_token(params[:id])
+    if author
+      author.email_activate
+      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to login_path
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   root 'posts#index'
 
 
-
   resources :posts do
     resources :comments do
       resources :votes
@@ -14,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :authors
+  resources :authors do
+    member do
+      get :confirm_email
+      end
+    end
   resources :sessions, only: [:new, :create, :destroy]
   get 'signup', to: 'authors#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
