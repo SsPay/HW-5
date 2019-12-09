@@ -29,8 +29,9 @@
     </p>
     <% end %>
     <% end %>
+    <% unless current_author %>
+<strong>Rating: <%= count_rating(comment.votes)%></strong>
+<% end  %>
     <br>
-            <% unless current_author %>
-        <strong>Rating: <%= count_rating(comment.votes)%></strong>
-        <% end  %>
+    <br>
   </div>
