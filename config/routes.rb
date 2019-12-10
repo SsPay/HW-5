@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   root 'posts#index'
 
+  get 'password_resets/new'
+  resources :password_resets
 
   resources :posts do
     resources :comments do
