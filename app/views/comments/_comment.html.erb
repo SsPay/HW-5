@@ -19,7 +19,7 @@
             <strong><%= count_rating(comment.votes)%></strong>
             <span class="btn btn-danger disabled">↓</span>
           <% end %>
-      <% if @post.author == current_author  %>
+      <% if comment.author == current_author  %>
     <p>
       <%= link_to 'Destroy', [comment.post, comment], remote: true,
                method: :delete,

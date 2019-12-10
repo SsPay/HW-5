@@ -1,5 +1,5 @@
 <div class="container reply_comment_form">
-<h2>Add comment  <%= fa_icon "edit" %></h2>
+<h2 class="form-header">Add comment  <%= fa_icon "edit" %></h2>
 <%= form_for ([@post, @comment]), remote: true do |f| %>
   <p>
     <%= f.hidden_field :parent_id %>

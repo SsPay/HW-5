@@ -1,1 +1,3 @@
-$(".comment<%=@comment.parent_id %>").after('<%= j render('form2', comment: @comment) %>');
+$(".comment<%=@comment.parent_id %>").after('<div class="reply-form"<%= j render('form2', comment: @comment) %></div>');
+$(".form-header").replaceWith("<h1 class='form-header'>Reply</h1>")
+$(".form-edit").hide(500) 
