@@ -7,7 +7,7 @@
     <p><%= post.author.login %></p>
     <p data-toggle="tooltip" data-placement="top" title="Uniq views(<%= post.impressionist_count(:filter=>:ip_address) %>)"> <%= fa_icon "eye" %> Views: <%= post.impressions_count %> <%= fa_icon "comments" %> <%= post.comments.count %>
     <small> </p>
-      <time><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
+      <time data-toggle="tooltip" data-placement="top" title="(<%=post.updated_at  %>)"><%= post.created_at.to_date.strftime("%d %B, %Y") %></time>
       <% if post.author == current_author  %>
       |
       <%= link_to 'Edit', edit_post_path(post) %>

@@ -15861,3 +15861,192 @@ DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and wil
 Completed 200 OK in 166ms (Views: 81.6ms | ActiveRecord: 17.5ms | Allocations: 45738)
 
 
+DEPRECATION WARNING: Initialization autoloaded the constants ApplicationHelper, AuthorHelper, AuthorsHelper, CommentsHelper, PasswordResetsHelper, PostsHelper, SessionsHelper, VotesHelper, FontAwesome::Rails::IconHelper, ActionText::ContentHelper, ActionText::TagHelper, ApplicationController, InheritedResources::Base, and ImpressionistController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ApplicationHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /home/vyacheslav/Рабочий стол/gh_projects/Blog-Rails-/config/environment.rb:5)
+Started GET "/" for ::1 at 2019-12-11 01:31:50 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 45], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 45]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_author'
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 45], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 1.4ms | Allocations: 368)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 45], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 42], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 42]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 42], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.6ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 42], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 41], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 41]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 41], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 1.9ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 41], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 40], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 40]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 40], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.5ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 40], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 39], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 39]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 39], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.5ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 39], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 38], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 38]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 38], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 1.4ms | Allocations: 744)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 38], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 37], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 37]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 37], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 1.6ms | Allocations: 744)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 37], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 24], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 24]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 24], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.5ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 24], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 23], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 23]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 23], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.6ms | Allocations: 255)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 23], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 21], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 21]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 21], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.6ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 21], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 20], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 20]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 20], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.6ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 20], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 13], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 13], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.7ms | Allocations: 256)
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 13], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 12], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 12], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  Rendered /home/vyacheslav/.rvm/gems/ruby-2.6.3/gems/actiontext-6.0.1/app/views/action_text/content/_layout.html.erb (Duration: 0.6ms | Allocations: 253)
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 12], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 3], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:7
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."ip_address") FROM "impressions" WHERE "impressions"."impressionable_id" = $1 AND "impressions"."impressionable_type" = $2[0m  [["impressionable_id", 2], ["impressionable_type", "Post"]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Post"], ["name", "picture"], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:22
+  Rendered collection of posts/_post.html.erb [15 times] (Duration: 355.1ms | Allocations: 107614)
+  Rendered posts/index.html.erb within layouts/application (Duration: 371.8ms | Allocations: 114228)
+Completed 200 OK in 514ms (Views: 458.2ms | ActiveRecord: 47.9ms | Allocations: 214280)
+
+
