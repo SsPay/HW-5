@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
     def edit
       @post = Post.find(params[:post_id])
-      @comment = @post.author.comments.find(params[:id])
+      @comment = Comment.find(params[:id])
       respond_to do |format|
         format.js {render 'edit', status: :created, location: @post}
         flash[:success] = "Comment successfully edited"
