@@ -19,7 +19,7 @@ class Author < ApplicationRecord
   def send_password_reset
     confirmation_token
     self.password_reset_sent_at = Time.zone.now
-    save!
+    save!(:validate => false)
     AuthorMailer.password_reset(self).deliver!
   end
 
