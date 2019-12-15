@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
-  before_action :correct_author, only: [:edit, :update, :destroy]
+  before_action :set_author, only: %i[show edit update destroy]
+  before_action :correct_author, only: %i[edit update destroy]
 
   def correct_author
-      @authors = Author.find_by(id: params[:id])
-      unless current_author
-        redirect_to root_path(current_author)
-      end
+    @authors = Author.find_by(id: params[:id])
+    redirect_to root_path(current_author) unless current_author
   end
 
   def index
@@ -22,8 +22,7 @@ class AuthorsController < ApplicationController
   end
 
   # GET /authors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /authors
   # POST /authors.json
@@ -47,7 +46,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html {redirect_to root_path}
+        format.html { redirect_to root_path }
         flash[:succes] = 'author was successfully updated.'
         format.json { render :show, status: :ok, location: @author }
       else
@@ -75,19 +74,20 @@ class AuthorsController < ApplicationController
       Please sign in to continue."
       redirect_to login_path
     else
-      flash[:error] = "Sorry. User does not exist"
+      flash[:error] = 'Sorry. User does not exist'
       redirect_to root_url
     end
 end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_author
-      @author = Author.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def author_params
-      params.require(:author).permit(:login, :email, :password, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_author
+    @author = Author.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def author_params
+    params.require(:author).permit(:login, :email, :password, :password_confirmation)
+  end
 end

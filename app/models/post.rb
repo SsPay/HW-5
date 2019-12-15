@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   is_impressionable counter_cache: true
   belongs_to :author
@@ -8,7 +10,7 @@ class Post < ApplicationRecord
   has_rich_text :content
 
   def self.search(search)
-    where("title LIKE ?", "%#{search}%")
-    where("content LIKE ?", "%#{search}%")
+    where('title LIKE ?', "%#{search}%")
+    where('content LIKE ?', "%#{search}%")
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CommentsHelper
   def count_rating(sample)
     sample.where(count: 1).count - sample.where(count: -1).count

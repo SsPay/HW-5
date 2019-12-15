@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'action_text'
 class ApplicationController < ActionController::Base
   helper ActionText::Engine.helpers
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
     if current_author.present?
       if current_author.banned == true
         redirect_back(fallback_location: root_path)
-        flash[:danger] = "You are banned☹️"
+        flash[:danger] = 'You are banned☹️'
       end
     end
   end

@@ -1,23 +1,24 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   impressionist actions: [:show], unique: [:session_hash]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :correct_author, only: [:edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :correct_author, only: %i[edit update destroy]
   before_action :actions_check
-  before_action :banned?, only: [:new, :create, :update]
+  before_action :banned?, only: %i[new create update]
 
   def correct_author
-      @post = Post.find_by(id: params[:id])
-      unless current_author
-        redirect_to root_path(current_author)
-      end
+    @post = Post.find_by(id: params[:id])
+    redirect_to root_path(current_author) unless current_author
     end
+
   def index
     @posts = Post.all
-    if params[:search]
-      @posts = Post.search(params[:search]).order("created_at DESC")
-    else
-      @posts = Post.all.order('created_at DESC')
-    end
+    @posts = if params[:search]
+               Post.search(params[:search]).order('created_at DESC')
+             else
+               Post.all.order('created_at DESC')
+             end
   end
 
   # GET /posts/1
@@ -32,8 +33,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts
   # POST /posts.json
@@ -71,29 +71,29 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.js {render 'destroy', status: :destroy, location: @post}
+      format.js { render 'destroy', status: :destroy, location: @post }
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-       params.require(:post).permit(:title, :content, :picture, session[:author_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def actions_check
-      if cookies[:actions]
-        cookies[:actions] = cookies[:actions].to_i + 1
-      else
-        cookies[:actions] = 0
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:title, :content, :picture, session[:author_id])
+  end
 
+  def actions_check
+    cookies[:actions] = if cookies[:actions]
+                          cookies[:actions].to_i + 1
+                        else
+                          0
+                        end
+  end
 end
