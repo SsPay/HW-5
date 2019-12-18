@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def edited?(param)
-    param.created_at != param.updated_at
+    param.created_at + 0.2 < param.updated_at
   end
 
   def pop_up
