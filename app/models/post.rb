@@ -10,7 +10,6 @@ class Post < ApplicationRecord
   has_rich_text :content
 
   def self.search(search)
-    where('title LIKE ?', "%#{search}%")
-    where('content LIKE ?', "%#{search}%")
+    where('title ILIKE ? OR content ILIKE ?', "%#{search}%", "%#{search}%")
   end
 end

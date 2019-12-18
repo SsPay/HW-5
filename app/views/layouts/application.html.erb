@@ -27,28 +27,27 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#">Link</a></li>
-
           </ul>
-                <form class="navbar-form navbar-left">
-                  <div class="form-group">
-                  <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control" %>
-                    <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-                  <% end %>
-                      </div>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-              <% unless current_author == nil %>
-              <li><%= link_to 'New Post', new_post_path%></li>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control" %>
+                <%= submit_tag "Search", class: "btn btn-outline-primary" %>
               <% end %>
-              <% if current_author %>
-                    <li><%= link_to fa_icon("sign-out", text: "Log Out"), logout_path %></li>
-              <% else %>
-                <li><%= link_to fa_icon("sign-in", text: "Sign Up"), signup_path %></li>
-                <li><%= link_to fa_icon("lock", text: "Log In"), login_path %></li>
+                        </div>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <% unless current_author == nil %>
+                <li><%= link_to 'New Post', new_post_path%></li>
                 <% end %>
-                  </ul>
-          </div><!-- /.container-fluid -->
+                <% if current_author %>
+                      <li><%= link_to fa_icon("sign-out", text: "Log Out"), logout_path %></li>
+                <% else %>
+                  <li><%= link_to fa_icon("sign-in", text: "Sign Up"), signup_path %></li>
+                  <li><%= link_to fa_icon("lock", text: "Log In"), login_path %></li>
+                <% end %>
+              </ul>
+            </div><!-- /.container-fluid -->
         </div><!-- /.navbar-collapse -->
         <div class="pull-right">
           <% if current_author %>
@@ -58,13 +57,12 @@
     </nav>
     <% if pop_up and current_author == nil %>
       <script>alert('You are not log in. Plz log in or register');</script>
+    <% end %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-            <div class="container">
-              <% flash.each do |key, value| %>
-                <div class="alert alert-<%= key %>"><%= value %></div>
-              <% end %>
-
-            </div>
+    </div>
     <%= yield %>
   </body>
 </html>
