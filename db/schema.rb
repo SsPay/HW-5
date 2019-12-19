@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_215320) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id"
     t.integer "impressions_count"
-    t.string "plain_text"
+    t.text "plain_text"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
