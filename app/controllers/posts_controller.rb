@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     end
 
   def index
-    @posts = Post.all
+    #@posts = Post.all
     @posts = if params[:search]
                Post.search(params[:search]).order('created_at DESC')
              else
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author = current_author
+    @post.plain_text = @post.content.to_plain_text
     respond_to do |format|
       if @post.save
         flash[:success] = 'Post was successfully created.'
@@ -91,9 +92,9 @@ class PostsController < ApplicationController
 
   def actions_check
     cookies[:actions] = if cookies[:actions]
-                          cookies[:actions].to_i + 1
-                        else
-                          0
-                        end
+      cookies[:actions].to_i + 1
+      else
+        0
+      end
   end
 end
