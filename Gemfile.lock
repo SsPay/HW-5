@@ -176,7 +176,7 @@ GEM
     public_suffix (4.0.1)
     puma (4.3.0)
       nio4r (~> 2.0)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -295,7 +295,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   impressionist!
   jbuilder (~> 2.7)
-  jquery-rails
   letter_opener
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
