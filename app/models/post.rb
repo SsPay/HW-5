@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  before_create :to_plain_text_content
   is_impressionable counter_cache: true
   belongs_to :author
   has_many :comments, dependent: :destroy
@@ -14,7 +13,4 @@ class Post < ApplicationRecord
     where('title ILIKE ? OR plain_text ILIKE ?', "%#{search}%", "%#{search}%")
   end
 
-  def to_plain_text_content
-    plain_text = content.to_plain_text
-  end
 end

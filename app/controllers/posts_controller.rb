@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author = current_author
+    @post.plain_text = @post.content.to_plain_text
     respond_to do |format|
       if @post.save
         flash[:success] = 'Post was successfully created.'
