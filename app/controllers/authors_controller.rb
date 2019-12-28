@@ -32,7 +32,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.save
         format.html { redirect_to root_path }
-        flash[:success] = 'author was successfully created.'
+        flash[:success] = 'You have successfully registered. Check your email.'
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }

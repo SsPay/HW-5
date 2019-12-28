@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  before_action :already_login?, only: %i[create]
+
   def new; end
 
   def create
@@ -19,5 +21,9 @@ class SessionsController < ApplicationController
     session[:author_id] = nil
     redirect_to posts_path
     flash[:warning] = 'Logged out!'
+  end
+
+  def already_login?
+    redirect_back(fallback_location: root_path) if current_author
   end
 end
