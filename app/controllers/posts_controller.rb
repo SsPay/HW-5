@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:success] = 'Post was successfully created.'
-        format.html { redirect_to @post}
+        format.html { redirect_to @post }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -74,16 +74,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-
   def post_params
     params.require(:post).permit(:title, :content, :picture, session[:author_id])
   end
 
   def actions_check
     cookies[:actions] = if cookies[:actions]
-      cookies[:actions].to_i + 1
-      else
-        0
+                          cookies[:actions].to_i + 1
+                        else
+                          0
       end
   end
 end

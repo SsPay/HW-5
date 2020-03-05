@@ -12,6 +12,7 @@ class Author < ApplicationRecord
   has_many :votes, dependent: :destroy
   validates :email, presence: true, uniqueness: true
   validates :login, presence: true, uniqueness: true
+  
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil

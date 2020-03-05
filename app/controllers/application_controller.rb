@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'action_text'
 class ApplicationController < ActionController::Base
   helper ActionText::Engine.helpers

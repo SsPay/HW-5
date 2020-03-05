@@ -12,5 +12,4 @@ class Post < ApplicationRecord
   def self.search(search)
     where('title ILIKE ? OR plain_text ILIKE ?', "%#{search}%", "%#{search}%")
   end
-
 end

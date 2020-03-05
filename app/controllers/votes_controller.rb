@@ -12,10 +12,10 @@ class VotesController < ApplicationController
           format.js { render 'create', status: :created, location: @post }
         else
           format.html { redirect_to @post, alert: 'You have already voted' }
-          end
+        end
       end
     end
-    end
+  end
 
   def dislike
     if already_voted?
@@ -27,10 +27,10 @@ class VotesController < ApplicationController
           format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         else
           format.html { redirect_to @post, alert: 'You have already voted' }
-          end
+        end
       end
     end
-    end
+  end
 
   private
 

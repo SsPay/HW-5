@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def correct_author
     @comment = Post.find(params[:post_id])
     redirect_to root_path(current_author) unless current_author
-    end
+  end
 
   def hour_for_comment_editing
     Time.now - @comment.created_at < 3600
@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
       respond_to do |_format|
         flash[:warning] = 'To much comments in one tree (5 comments max)'
       end
-        end
+    end
   end
 
   def update
