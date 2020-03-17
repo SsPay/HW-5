@@ -9,5 +9,5 @@ module SessionsHelper
     if (author_id = session[:author_id])
       @current_author ||= Author.find_by(id: author_id)
     end
- end
+  end
 end

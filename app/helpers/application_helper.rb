@@ -4,7 +4,7 @@ module ApplicationHelper
   def correct_author
     @comment = Post.find(params[:post_id])
     redirect_to root_path(current_author) unless current_author
-    end
+  end
 
   def hour_for_comment_editing
     unless Time.now - @comment.created_at < 3600
