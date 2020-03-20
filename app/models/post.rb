@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   belongs_to :author
   has_many :comments, dependent: :destroy
   has_one_attached :picture
-  validates :title, presence: true
+  validates :title, presence: true, length: { minimum: 4, maximum: 20 }
   validates :content, presence: true
   has_rich_text :content
 
